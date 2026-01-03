@@ -1,4 +1,6 @@
 'use client'; 
+
+import { useCart } from '@/context/CartContext';
 import styled from 'styled-components';
 
 const Card = styled.div`
@@ -28,20 +30,24 @@ const Price = styled.p`
   color: #d4a373; 
 `;
 
-export default function CoffeeCard({ name, price }) {
+const Button = styled.button`
+  padding: 10px 20px, 
+  borderRadius: 10px, 
+  border: none, 
+  cursor: pointer,
+  background: #d4a373 
+`;
+
+export default function CoffeeCard({ id, name, price }) {
+  const { addToCart } = useCart();
+
   return (
     <Card>
       <Title>{name}</Title>
       <Price>{price}</Price>
-      <button style={{ 
-        padding: '10px 20px', 
-        borderRadius: '10px', 
-        border: 'none', 
-        cursor: 'pointer',
-        background: '#d4a373' 
-      }}>
+      <Button onClick={() => addToCart({ id, name, price })}>
         Adicionar
-      </button>
+      </Button>
     </Card>
   );
 }
