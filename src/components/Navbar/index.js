@@ -1,3 +1,5 @@
+'use client';
+
 import { useCart } from '@/context/CartContext';
 import { Nav, Logo, NavLinks, NavLink, NavButton } from './Navbar.styles';
 
