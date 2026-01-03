@@ -1,12 +1,19 @@
+'use client';
+import { useState } from 'react';
 import Hero from '@/components/Hero';
 import Menu from '@/components/Menu';
+import Cart from '@/components/Cart';
 
 export default function Home() {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   return (
     <main>
-      <Hero />
+      <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      <div onClick={() => setIsCartOpen(true)}>
+         <Hero />
+      </div>
       <Menu />
-      {/* Outras seções virão aqui */}
     </main>
   );
 }
