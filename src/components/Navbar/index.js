@@ -1,6 +1,9 @@
+import { useCart } from '@/context/CartContext';
 import { Nav, Logo, NavLinks, NavLink, NavButton } from './Navbar.styles';
 
 export default function Navbar() {
+  const { openCart } = useCart();
+
   return (
     <Nav>
       <Logo>
@@ -12,9 +15,7 @@ export default function Navbar() {
         <NavLink><a href="#">Sobre</a></NavLink>
         <NavLink><a href="#">Contato</a></NavLink>
       </NavLinks>
-      <NavButton>
-        Pedir Agora
-      </NavButton>
+      <NavButton onClick={openCart}>Pedir Agora</NavButton>
     </Nav>
   );
 }

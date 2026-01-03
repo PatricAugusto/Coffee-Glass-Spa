@@ -1,13 +1,16 @@
+import { useCart } from '@/context/CartContext';
 import { CartOverlay, CartSidebar, CartHeader } from './Cart.styles';
 
-export default function Cart({ isOpen, onClose }) {
+export default function Cart() {
+  const { isCartOpen, closeCart } = useCart();
+
   return (
     <>
-      <CartOverlay $isOpen={isOpen} onClick={onClose} />
-      <CartSidebar $isOpen={isOpen}>
+      <CartOverlay $isOpen={isCartOpen} onClick={closeCart} />
+      <CartSidebar $isOpen={isCartOpen}>
         <CartHeader>
           <h2>Seu Pedido</h2>
-          <button onClick={onClose}>&times;</button>
+          <button onClick={closeCart}>&times;</button>
         </CartHeader>
         
         <div style={{ flex: 1, color: 'rgba(255,255,255,0.6)' }}>
