@@ -1,9 +1,10 @@
-import CoffeCard from "../components/CoffeCard"
+import Hero from '@/components/Hero';
 
 export default function Home() {
   return (
-    <>
-      <CoffeCard />
-    </>
+    <main>
+      <Hero />
+      {/* Outras seções virão aqui */}
+    </main>
   );
 }
