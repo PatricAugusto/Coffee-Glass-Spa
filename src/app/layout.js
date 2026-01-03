@@ -1,5 +1,6 @@
 import StyledComponentsRegistry from '@/lib/registry';
 import { GlobalStyle } from './styles/GlobalStyles';
+import Navbar from '@/components/Navbar';
 
 export const metadata = {
   title: 'Glass Coffee | Experiência Minimalista',
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
       <body>
         <StyledComponentsRegistry>
           <GlobalStyle />
+          <Navbar />
           {children}
         </StyledComponentsRegistry>
       </body>
