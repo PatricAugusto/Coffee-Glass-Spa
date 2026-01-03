@@ -17,6 +17,8 @@ export const Nav = styled.nav`
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-sizing: border-box;
 `;
 
 export const Logo = styled.div`
@@ -63,9 +65,11 @@ export const NavButton = styled.button`
   color: #d4a373;
   cursor: pointer;
   font-weight: bold;
+  margin-right: 10px;
   white-space: nowrap; 
   transition: all 0.3s ease;
   margin-left: 20px; 
+  min-width: fit-content;
 
   &:hover {
     background: #d4a373;

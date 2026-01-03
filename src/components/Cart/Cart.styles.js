@@ -4,33 +4,41 @@ import styled from 'styled-components';
 export const CartOverlay = styled.div`
   position: fixed;
   top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
   z-index: 2000;
-  display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
+  opacity: ${({ $isOpen }) => ($isOpen ? '1' : '0')};
+  visibility: ${({ $isOpen }) => ($isOpen ? 'visible' : 'hidden')};
+  pointer-events: ${({ $isOpen }) => ($isOpen ? 'all' : 'none')};
+  transition: all 0.3s ease-in-out;
 `;
 
 export const CartSidebar = styled.div`
   position: fixed;
   top: 0;
-  right: ${({ $isOpen }) => ($isOpen ? '0' : '-400px')};
+  right: 0;
   width: 400px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 2001;
-  transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  
+  transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100%)')};
+  pointer-events: ${({ $isOpen }) => ($isOpen ? 'all' : 'none')};
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 480px) {
     width: 100%;
-    right: ${({ $isOpen }) => ($isOpen ? '0' : '-100%')};
   }
 `;
 
