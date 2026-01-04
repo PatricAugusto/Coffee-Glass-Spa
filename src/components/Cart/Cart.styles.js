@@ -21,6 +21,8 @@ export const CartSidebar = styled.div`
   top: 0;
   right: 0;
   width: 400px;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   background: rgba(20, 20, 20, 0.8);
   backdrop-filter: blur(30px);
@@ -59,29 +61,6 @@ export const CartHeader = styled.div`
   }
 `;
 
-export const CartFooter = styled.div`
-  margin-top: auto;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-
-  .total-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
-    
-    span {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 1.1rem;
-    }
-    
-    strong {
-      color: #d4a373;
-      font-size: 1.5rem;
-    }
-  }
-`;
-
 export const QuantitySelector = styled.div`
   display: flex;
   align-items: center;
@@ -112,5 +91,65 @@ export const QuantitySelector = styled.div`
     font-weight: bold;
     min-width: 20px;
     text-align: center;
+  }
+`;
+
+export const CartItemContainer = styled.div`
+  flex: 1; 
+  overflow-y: auto; 
+  padding: 1rem 0;
+  margin-bottom: 20px;
+
+  &::-webkit-scrollbar { width: 5px; }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(212, 163, 115, 0.2);
+    border-radius: 10px;
+  }
+
+  .cart-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .item-main {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    button { background: none; border: none; color: #ff4d4d; cursor: pointer; }
+  }
+
+  .item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+export const CartFooter = styled.div`
+  background: rgba(255, 255, 255, 0.02);
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
+  .total-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    span { font-size: 1.1rem; opacity: 0.8; }
+    strong { font-size: 1.4rem; color: #d4a373; }
+  }
+`;
+
+export const CheckoutButton = styled.button`
+  width: 100%;
+  padding: 1.2rem;
+  background: #d4a373;
+  color: #1e1e1e;
+  border: none;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+  
+  &:hover {
+    filter: brightness(1.1);
   }
 `;
