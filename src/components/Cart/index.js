@@ -1,8 +1,9 @@
 import { useCart } from '@/context/CartContext';
-import { CartFooter, CartOverlay, CartSidebar, CartHeader } from './Cart.styles';
+import { QuantitySelector, CartFooter, CartOverlay, CartSidebar, CartHeader } from './Cart.styles';
 
 export default function Cart() {
-  const { isCartOpen, closeCart, cartItems, cartTotal } = useCart();
+  const { isCartOpen, closeCart, cartTotal } = useCart();
+  const { cartItems, updateQuantity, removeFromCart } = useCart();
 
   return (
     <>
@@ -33,27 +34,28 @@ export default function Cart() {
           )}
         </div>
 
-        {cartItems.length > 0 && (
-          <CartFooter>
-            <div className="total-row">
-              <span>Total do Pedido</span>
-              <strong>{cartTotal}</strong>
-            </div>
-            <button style={{
-              width: '100%',
-              padding: '18px',
-              background: '#d4a373',
-              color: '#1e1e1e',
-              border: 'none',
-              borderRadius: '12px',
-              fontWeight: '800',
-              cursor: 'pointer',
-              transition: 'transform 0.2s'
-            }}>
-              FINALIZAR COMPRA
-            </button>
-          </CartFooter>
-        )}
+        {cartItems.map((item) => (
+      <div key={item.id} style={{ marginBottom: '1.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+          <h4 style={{ color: '#fff' }}>{item.name}</h4>
+          <button 
+            onClick={() => removeFromCart(item.id)}
+            style={{ background: 'none', border: 'none', color: 'rgba(255,0,0,0.6)', cursor: 'pointer' }}
+          >
+            remover
+          </button>
+        </div>
+        
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <QuantitySelector>
+            <button onClick={() => updateQuantity(item.id, -1)}>-</button>
+            <span>{item.quantity}</span>
+            <button onClick={() => updateQuantity(item.id, 1)}>+</button>
+          </QuantitySelector>
+          <span style={{ color: '#d4a373', fontWeight: 'bold' }}>{item.price}</span>
+        </div>
+      </div>
+    ))}
       </CartSidebar>
     </>
   );

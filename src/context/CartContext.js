@@ -43,6 +43,18 @@ const cartTotal = calculateTotal().toLocaleString('pt-BR', {
   currency: 'BRL',
 });
 
+const updateQuantity = (productId, delta) => {
+  setCartItems((prevItems) => 
+    prevItems.map((item) => {
+      if (item.id === productId) {
+        const newQuantity = item.quantity + delta;
+        return { ...item, quantity: Math.max(1, newQuantity) };
+      }
+      return item;
+    })
+  );
+};
+
   return (
     <CartContext.Provider value={{ 
       isCartOpen, 
@@ -52,7 +64,9 @@ const cartTotal = calculateTotal().toLocaleString('pt-BR', {
       addToCart, 
       removeFromCart,
       cartTotal,
-      cartItems
+      cartItems,
+      updateQuantity,
+      removeFromCart
     }}>
       {children}
     </CartContext.Provider>

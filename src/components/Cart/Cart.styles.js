@@ -81,3 +81,36 @@ export const CartFooter = styled.div`
     }
   }
 `;
+
+export const QuantitySelector = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  button {
+    background: none;
+    border: none;
+    color: #d4a373;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  span {
+    color: #fff;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+  }
+`;
