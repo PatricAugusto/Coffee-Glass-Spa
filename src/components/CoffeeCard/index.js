@@ -2,6 +2,7 @@
 
 import { useCart } from '@/context/CartContext';
 import styled from 'styled-components';
+import { AddButton } from '../Menu/Menu.styles';
 
 const Card = styled.div`
   background: rgba(255, 255, 255, 0.05);
@@ -30,14 +31,6 @@ const Price = styled.p`
   color: #d4a373; 
 `;
 
-const Button = styled.button`
-  padding: 10px 20px, 
-  borderRadius: 10px, 
-  border: none, 
-  cursor: pointer,
-  background: #d4a373 
-`;
-
 export default function CoffeeCard({ id, name, price }) {
   const { addToCart } = useCart();
 
@@ -45,9 +38,9 @@ export default function CoffeeCard({ id, name, price }) {
     <Card>
       <Title>{name}</Title>
       <Price>{price}</Price>
-      <Button onClick={() => addToCart({ id, name, price })}>
-        Adicionar
-      </Button>
+      <AddButton onClick={() => addToCart({ id, name, price })}>
+         Adicionar
+       </AddButton>
     </Card>
   );
 }

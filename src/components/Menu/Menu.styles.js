@@ -33,3 +33,27 @@ export const ProductGrid = styled.div`
   width: 100%;
   max-width: 1200px;
 `;
+
+export const AddButton = styled.button`
+  background: #d4a373; 
+  color: #1e1e1e;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 50px; 
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  width: fit-content;
+
+  &:hover {
+    background: #b68a5d; 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 163, 115, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
