@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Hero from '@/components/Hero';
+import About from '@/components/About';
 import Menu from '@/components/Menu';
 import Cart from '@/components/Cart';
 
@@ -13,6 +14,7 @@ export default function Home() {
       <div onClick={() => setIsCartOpen(true)}>
          <Hero />
       </div>
+      <About />
       <Menu />
     </main>
   );
