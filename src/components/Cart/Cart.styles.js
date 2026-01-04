@@ -58,3 +58,26 @@ export const CartHeader = styled.div`
     cursor: pointer;
   }
 `;
+
+export const CartFooter = styled.div`
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  .total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    
+    span {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.1rem;
+    }
+    
+    strong {
+      color: #d4a373;
+      font-size: 1.5rem;
+    }
+  }
+`;

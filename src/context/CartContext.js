@@ -31,6 +31,18 @@ export function CartProvider({ children }) {
     setCartItems((prevItems) => prevItems.filter(item => item.id !== productId));
   };
 
+  const calculateTotal = () => {
+  return cartItems.reduce((acc, item) => {
+    const priceValue = parseFloat(item.price.replace('R$', '').replace(',', '.').trim());
+    return acc + (priceValue * item.quantity);
+  }, 0);
+};
+
+const cartTotal = calculateTotal().toLocaleString('pt-BR', {
+  style: 'currency',
+  currency: 'BRL',
+});
+
   return (
     <CartContext.Provider value={{ 
       isCartOpen, 
@@ -38,7 +50,9 @@ export function CartProvider({ children }) {
       closeCart, 
       cartItems, 
       addToCart, 
-      removeFromCart 
+      removeFromCart,
+      cartTotal,
+      cartItems
     }}>
       {children}
     </CartContext.Provider>

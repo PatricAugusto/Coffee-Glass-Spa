@@ -1,8 +1,8 @@
 import { useCart } from '@/context/CartContext';
-import { CartOverlay, CartSidebar, CartHeader } from './Cart.styles';
+import { CartFooter, CartOverlay, CartSidebar, CartHeader } from './Cart.styles';
 
 export default function Cart() {
-  const { isCartOpen, closeCart, cartItems } = useCart();
+  const { isCartOpen, closeCart, cartItems, cartTotal } = useCart();
 
   return (
     <>
@@ -34,16 +34,25 @@ export default function Cart() {
         </div>
 
         {cartItems.length > 0 && (
-        <button style={{
-          padding: '15px',
-          background: '#d4a373',
-          border: 'none',
-          borderRadius: '10px',
-          fontWeight: 'bold',
-          cursor: 'pointer'
-        }}>
-          Finalizar Compra
-        </button>
+          <CartFooter>
+            <div className="total-row">
+              <span>Total do Pedido</span>
+              <strong>{cartTotal}</strong>
+            </div>
+            <button style={{
+              width: '100%',
+              padding: '18px',
+              background: '#d4a373',
+              color: '#1e1e1e',
+              border: 'none',
+              borderRadius: '12px',
+              fontWeight: '800',
+              cursor: 'pointer',
+              transition: 'transform 0.2s'
+            }}>
+              FINALIZAR COMPRA
+            </button>
+          </CartFooter>
         )}
       </CartSidebar>
     </>
