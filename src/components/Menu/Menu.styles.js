@@ -2,11 +2,18 @@
 import styled from 'styled-components';
 
 export const MenuSection = styled.section`
-  padding: 100px 5%;
+  padding: 80px 5%;
   background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  overflow: hidden; 
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 60px 20px;
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -28,11 +35,12 @@ export const SectionTitle = styled.h2`
 
 export const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 2rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0;
 
   @media (max-width: 480px) {
     grid-template-columns: 1fr; 
