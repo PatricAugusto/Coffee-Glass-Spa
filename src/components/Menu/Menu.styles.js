@@ -33,6 +33,11 @@ export const ProductGrid = styled.div`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+  }
 `;
 
 export const AddButton = styled.button`
