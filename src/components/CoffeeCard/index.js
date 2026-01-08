@@ -31,16 +31,22 @@ const Price = styled.p`
   color: #d4a373; 
 `;
 
-export default function CoffeeCard({ id, name, price }) {
+export default function CoffeeCard({ product }) {
   const { addToCart } = useCart();
+
+  console.log("Produto recebido no Card:", product);
+
+  if (!product) return <p style={{ color: 'red' }}>Erro no carregamento do card</p>;
+  
+  const { id, name, price } = product;
 
   return (
     <Card>
       <Title>{name}</Title>
       <Price>{price}</Price>
       <AddButton onClick={() => addToCart({ id, name, price })}>
-         Adicionar
-       </AddButton>
+        Adicionar
+      </AddButton>
     </Card>
   );
 }

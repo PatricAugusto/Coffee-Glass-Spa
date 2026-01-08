@@ -44,7 +44,10 @@ export default function Cart() {
                     <span>{item.quantity}</span>
                     <button onClick={() => updateQuantity(item.id, 1)}>+</button>
                   </QuantitySelector>
-                  <span className="subtotal">{formatSubtotal(item.price, item.quantity)}</span>
+                  <span className="subtotal">
+                    {(parseFloat(item.price.replace('R$', '').replace(',', '.').trim()) * item.quantity)
+                      .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+        </span>
                 </div>
               </div>
             ))
