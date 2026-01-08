@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Menu from '@/components/Menu';
 import Cart from '@/components/Cart';
+import Contact from '@/components/Contact'
 
 export default function Home() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -16,6 +17,7 @@ export default function Home() {
       </div>
       <About />
       <Menu />
+      <Contact />
     </main>
   );
 }
