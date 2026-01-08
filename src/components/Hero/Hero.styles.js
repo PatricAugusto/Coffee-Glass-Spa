@@ -2,13 +2,24 @@
 import styled from 'styled-components';
 
 export const HeroContainer = styled.section`
-  height: 90vh;
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5%;
-  background: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+  padding: relative;
   position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  margin: 0;
+  padding: 0;
 
   &::before {
     content: '';
